@@ -1,4 +1,6 @@
 import os
+import csv
+
 
 #Asks for user input
 print("Files present with the .tsv extension:")
@@ -8,26 +10,17 @@ for file in os.listdir():
         print(file)
 print("*************************")
 
-UserTSV=input('Enter the name of the TSV file you would like to be read: ')
-tsv_file = open(UserTSV, "r")
+UserTSV = input('Enter the name of the TSV file you would like to be read: ')
+tsv = open(UserTSV)
+unique = set()
+
+tsv_file = csv.reader(tsv, delimiter="\t")
+
+f = open(UserTSV[:-4]+"-OnlyNucleicAcids.tsv", "a")
 
 
-NonAcids=input('Enter the name of the List of Exceptions PDBs you would like to be read: ')
-ExceptionList = open(NonAcids, "r")
-
-#things to be filled later in script
-BadPDBs=[]
-f = open(UserTSV[:-4]+"-BadPDBsRemoved.tsv", "a")
-
-#build list of bad PDBs
-for line in ExceptionList:
-    a = line.split()
-    BadPDBs.append(a[0])
-
-
-#remove bad PDB lines from tsv, write to new file
 for line in tsv_file:
-    a = line.split()
-    if a[0] in BadPDBs:
+    if line[5] != "nucleic-acid":
         continue
-    f.write(line)
+    var = '\t'.join(line)
+    f.write(var+'\n')
