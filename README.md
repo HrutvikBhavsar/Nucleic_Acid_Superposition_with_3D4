@@ -1,6 +1,6 @@
 # Antibody-Nucleic-Acid-Antigen-Superpose
 
-Superimpose multiple Antibody-antigen structure that contain nucleic acids
+Superimpose multiple Antibody-antigen structure whose antigens are nucleic acids
 
 This is a project done by Nicholas Gao and Hrutvik Bhavsar.
 
