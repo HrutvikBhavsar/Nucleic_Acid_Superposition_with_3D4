@@ -17,7 +17,7 @@ read_tsv = list(csv.reader(tsv_file, delimiter="\t"))
 for file in os.listdir():
     if ".pml" in file:
         os.remove(file)
-f = open("Nucleic_Acid_Standardization.pml", "a")
+f = open("Nucleic_Acid_Standardization-TEST.pml", "a")
 
 #this runs through the .tsv, uses info in .tsv to appropriately populate the .pml
 for i, line in enumerate(read_tsv):
@@ -32,7 +32,15 @@ for i, line in enumerate(read_tsv):
         print("load "+pdb+".pdb", file=f)
         print("alter (chain "+heavychain+"), chain='y'", file=f)
         print("alter (chain "+lightchain+"), chain='z'", file=f)
-        print("alter (chain "+antigen+"), chain='f'", file=f)
+        #print("alter (chain "+antigen+"), chain='f'", file=f)
+        if len(read_tsv[i][4]) == 5:
+            print("alter (chain "+antigen[0]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[4]+"), chain='g'", file=f)
+        if len(read_tsv[i][4]) == 9:
+            print("alter "+antigen[0]+"), chain='f'", file=f)
+            print("alter "+antigen[4]+"), chain='g'", file=f)
+            print("alter "+antigen[8]+"), chain='f'", file=f)
+
     elif pdb == prevpdb: #if prev entry is same pdb, delete duplicate antibody/antigen chains
         print("remove c. "+heavychain+" or c. "+lightchain+"", file=f)
         if len(antigen) == 1:
@@ -48,6 +56,8 @@ for i, line in enumerate(read_tsv):
         #print("remove c. z and not i. 1-107", file=f)
         #print("sele c. f within 20 of c. y or c. z", file=f)
         #print("remove c. f and not sele", file=f)
+        print("remove (chain A)", file=f)
+        print("remove (chain B)", file=f)
         print("remove (chain C)", file=f)
         print("remove (chain D)", file=f)
         print("save "+prevpdb+"-proc.pdb, "+prevpdb, file=f)
@@ -55,14 +65,27 @@ for i, line in enumerate(read_tsv):
         print("load "+pdb+".pdb", file=f)
         print("alter (chain "+heavychain+"), chain='y'", file=f)
         print("alter (chain "+lightchain+"), chain='z'", file=f)
+        if len(read_tsv[i][4]) == 5:
+            print("alter (chain "+antigen[0]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[4]+"), chain='g'", file=f)
+        if len(read_tsv[i][4]) == 9:
+            print("alter "+antigen[0]+"), chain='f'", file=f)
+            print("alter "+antigen[4]+"), chain='g'", file=f)
+            print("alter "+antigen[8]+"), chain='f'", file=f)
+
         if len(antigen) == 1:
             print("alter (chain "+antigen[0]+"), chain='f'", file=f)
         if len(antigen) == 5:
-            print("alter (chain "+antigen[0]+" or chain "+antigen[4]+"), chain='f'", file=f)
+            #print("alter (chain "+antigen[0]+" or chain "+antigen[4]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[0]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[4]+"), chain='g'", file=f)
         if len(antigen) == 9:
-            print("alter (chain "+antigen[0]+" or chain "+antigen[4]+" or chain "+antigen[8]+"), chain='f'", file=f)
-        if len(antigen) == 17:
-            print("alter (chain "+antigen[0]+" or chain "+antigen[4]+" or chain "+antigen[8]+" or chain "+antigen[12]+" or chain "+antigen[16]+"), chain = 'f'", file=f)
+            #print("alter (chain "+antigen[0]+" or chain "+antigen[4]+" or chain "+antigen[8]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[0]+"), chain='f'", file=f)
+            print("alter (chain "+antigen[4]+"), chain='g'", file=f)
+            print("alter (chain "+antigen[8]+"), chain='f'", file=f)
+        #if len(antigen) == 17:
+            #print("alter (chain "+antigen[0]+" or chain "+antigen[4]+" or chain "+antigen[8]+" or chain "+antigen[12]+" or chain "+antigen[16]+"), chain = 'f'", file=f)
     if i == len(read_tsv) - 1: #exception commands for last line
         print("remove (chain A)", file=f)
         print("remove (chain B)", file=f)
