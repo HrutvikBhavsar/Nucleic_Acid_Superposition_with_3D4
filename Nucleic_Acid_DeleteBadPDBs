@@ -21,15 +21,3 @@ BadPDBs=[]
 #if "500Lines-BadPDBsRemoved.tsv" in os.listdir():
     #os.remove("500Lines-BadPDBsRemoved.tsv")
 f = open("Nucleic_Acids-BadPDBsRemoved.tsv", "a")
-
-#build list of bad PDBs
-for line in ExceptionList:
-    a = line.split()
-    BadPDBs.append(a[0])
-
-#remove bad PDB lines from tsv, write to new file
-for line in tsv_file:
-    a = line.split()
-    if a[0] in BadPDBs:
-        continue
-    f.write(line)
