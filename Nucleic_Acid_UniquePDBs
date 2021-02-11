@@ -23,3 +23,7 @@ for line in TSVList:
     if a[0] == "pdb": #skip the header
         continue
     unique.add(a[0])
+
+    
+#write out unique PDBs to a text file
+f.write(str(unique))
