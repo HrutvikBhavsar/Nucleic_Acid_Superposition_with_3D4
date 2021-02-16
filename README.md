@@ -6,7 +6,7 @@ This is a project done by Nicholas Gao and Hrutvik Bhavsar.
 
 The intended workflow of this pipeline is:
 
-   1)Download a tsv from the Structural Antibody Database (http://opig.stats.ox.ac.uk/webapps/newsabdab/sabdab/) that contains only antibodies bound to nucleic acid antigens.
+   1)Download a tsv from the Structural Antibody Database (http://opig.stats.ox.ac.uk/webapps/newsabdab/sabdab/) that contains only antibodies bound to nucleic acid antigens. Or use tsv file already in this git repo.
    
    2)Use Nucleic_Acid_DeleteBadPDBs.py and Nucleic_Acid_Exception_List.tsv to delete bad lines from your .tsv.
    
