@@ -26,4 +26,4 @@ for line in TSVList:
 
     
 #write out unique PDBs to a text file
-f.write(str(unique))
+f.write(",".join(unique))

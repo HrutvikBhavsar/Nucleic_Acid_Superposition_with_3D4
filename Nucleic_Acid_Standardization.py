@@ -29,7 +29,7 @@ for i, line in enumerate(read_tsv):
     if i == 0: #exception command for first line
         continue
     if i == 1: #exception commands for second line
-        print("load "+pdb+".pdb", file=f)
+        print("load "+pdb+".pdb.gz", file=f)
         print("alter (chain "+heavychain+"), chain='y'", file=f)
         print("alter (chain "+lightchain+"), chain='z'", file=f)
         print("alter (chain "+antigen+"), chain='f'", file=f)
@@ -52,7 +52,7 @@ for i, line in enumerate(read_tsv):
         print("remove (chain D)", file=f)
         print("save "+prevpdb+"-proc.pdb, "+prevpdb, file=f)
         print("delete "+prevpdb, file=f)
-        print("load "+pdb+".pdb", file=f)
+        print("load "+pdb+".pdb.gz", file=f)
         print("alter (chain "+heavychain+"), chain='y'", file=f)
         print("alter (chain "+lightchain+"), chain='z'", file=f)
         if len(antigen) == 1:
