@@ -1,0 +1,5 @@
+1mrf (Antigen and heavy chain shared same variable)
+1mre (Antigen and heavy chain shared same variable)
+6cf2 (Not DNA)
+1ehl (Ligand is a small photo damaged DNA)
+6idg (Ligand is a small photo damaged DNA)
