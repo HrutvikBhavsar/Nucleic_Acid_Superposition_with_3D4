@@ -6,6 +6,8 @@ This is a project done by Nicholas Gao and Hrutvik Bhavsar.
 
 The intended workflow of this pipeline is:
 
+   0) Copy all the files in this directory to a new folder.
+
    1)Download a tsv from the Structural Antibody Database (http://opig.stats.ox.ac.uk/webapps/newsabdab/sabdab/search/, Search structures by attribute) that contains only antibodies bound to nucleic acid antigens. Or use 20210311_0849863_summary.tsv which was downloaded on 11Mar2021.
    
    2)Run Nucleic_Acid_DeleteBadPDBs.py, give the script the desired .tsv from step 1 and Nucleic_Acid_Exception_List.txt. A new .tsv (Nucleic_Acids-BadPDBsRemoved.tsv) will be generated that excludes lines described by the Exception List.
