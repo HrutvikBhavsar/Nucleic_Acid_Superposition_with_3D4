@@ -6,7 +6,7 @@ This is a project done by Nicholas Gao and Hrutvik Bhavsar.
 
 The intended workflow of this pipeline is:
 
-0) Copy all the files in this directory to a new folder.
+   0) Copy all the files in this directory to a new folder.
 
    1)Download a tsv from the Structural Antibody Database (http://opig.stats.ox.ac.uk/webapps/newsabdab/sabdab/search/, Search structures by attribute) that contains only antibodies bound to nucleic acid antigens. Or use 20210311_0849863_summary.tsv which was downloaded on 11Mar2021.
    
